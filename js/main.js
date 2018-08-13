@@ -1,4 +1,4 @@
-{
+
 	var body = new Image();
 	body.src = 'images/body.png';
 	var head = new Image();
@@ -273,9 +273,8 @@
 	const run = () => {
 		requestAnimationFrame(run);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		ctx.fillStyle = "#222";
-		ctx.fillRect(0, 0, canvas.width, canvas.height * 0.15);
-		ctx.fillRect(0, canvas.height * 0.85, canvas.width, canvas.height * 0.15);
+		ctx.fillStyle = "#000";
+
 		ctx.save();
 		for (let i = 0; i < dancers.length; i++) {
 			const d0 = dancers[i];
@@ -418,5 +417,51 @@
 		);
 	}
 	run();
+
+function addAcat()
+{
+	for (let i = 0; i < 1; i++) {
+		dancers.push(
+			new Robot(
+				i * 360 / 7,
+				80,
+				4,
+				(i + 2) * canvas.width / 9,
+				canvas.height * ground - 300,
+				struct
+			)
+		);
+	}
 }
 
+function addTwocat()
+{
+	for (let i = 0; i < 2; i++) {
+		dancers.push(
+			new Robot(
+				i * 360 / 7,
+				80,
+				4,
+				(i + 2) * canvas.width / 9,
+				canvas.height * ground - 300,
+				struct
+			)
+		);
+	}
+}
+
+function addAFewcat()
+{
+	for (let i = 0; i < Math.floor(Math.random()*10); i++) {
+		dancers.push(
+			new Robot(
+				i * 360 / 7,
+				80,
+				4,
+				(i + 2) * canvas.width / 9,
+				canvas.height * ground - 300,
+				struct
+			)
+		);
+	}
+}
